@@ -17,7 +17,11 @@ const ArticleBody = ({ id }) => {
   return (
     <div>
       <h1>{article.title}</h1>
-      <h3>By {article.author}</h3>
+      <h3>
+        By {article.author} {new Date(article.created_at).getDate()}/
+        {new Date(article.created_at).getMonth()}/
+        {new Date(article.created_at).getFullYear()}
+      </h3>
       <img src={article.article_img_url}></img>
       <p>{article.body}</p>
     </div>
