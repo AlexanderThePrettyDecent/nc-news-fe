@@ -37,7 +37,7 @@ const ListProvider = () => {
       {page > 1 ? (
         <button onClick={previousPageHandler}>Previous Page</button>
       ) : null}
-      <p1>Page: {page}</p1>
+      <p>Page: {page}</p>
       {totalPages >= page + 1 ? (
         <button onClick={nextPageHandler}>Next Page</button>
       ) : null}
