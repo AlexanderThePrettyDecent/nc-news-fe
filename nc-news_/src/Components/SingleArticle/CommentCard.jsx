@@ -1,6 +1,6 @@
 const CommentCard = ({ comment }) => {
   return (
-    <div>
+    <li key={comment.id}>
       <p>
         <b>{comment.author}</b>| Votes: {comment.votes} |{" "}
         {new Date(comment.created_at).getDate()}/
@@ -8,7 +8,7 @@ const CommentCard = ({ comment }) => {
         {new Date(comment.created_at).getFullYear()}
       </p>
       <p>{comment.body}</p>
-    </div>
+    </li>
   );
 };
 

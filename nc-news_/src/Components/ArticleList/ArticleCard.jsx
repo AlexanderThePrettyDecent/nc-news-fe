@@ -4,7 +4,7 @@ const ArticleCard = ({ article }) => {
   return (
     <div>
       <Link to={`articles/${article.article_id}`}>
-        <h2 key={article.id}>{article.title}</h2>
+        <h2 key={article.id + "comment"}>{article.title}</h2>
       </Link>
       <p>
         Author: {article.author} |Topic: {article.topic} |Posted on:{" "}
