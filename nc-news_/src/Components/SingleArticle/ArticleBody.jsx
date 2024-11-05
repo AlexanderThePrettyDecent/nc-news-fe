@@ -24,22 +24,34 @@ const ArticleBody = ({ id }) => {
     if (voted === "none") {
       setVoted("up");
       setVoteCount(voteCount + 1);
-      apiClient.patch(`/articles/${id}`, { inc_votes: 1 });
+      apiClient.patch(`/articles/${id}`, { inc_votes: 1 }).catch((err) => {
+        setVoted("none");
+        setVoteCount(voteCount);
+      });
     } else {
       setVoted("none");
       setVoteCount(voteCount - 1);
-      apiClient.patch(`/articles/${id}`, { inc_votes: -1 });
+      apiClient.patch(`/articles/${id}`, { inc_votes: -1 }).catch((err) => {
+        setVoted("up");
+        setVoteCount(voteCount);
+      });
     }
   };
   const downVoteHandler = () => {
     if (voted === "none") {
       setVoted("down");
-      setVoteCount(voteCount - 1);
-      apiClient.patch(`/articles/${id}`, { inc_votes: -1 });
+      setVoteCount(voteCount);
+      apiClient.patch(`/articles/${id}`, { inc_votes: -1 }).catch((err) => {
+        setVoted("none");
+        setVoteCount(voteCount);
+      });
     } else {
       setVoted("none");
       setVoteCount(voteCount + 1);
-      apiClient.patch(`/articles/${id}`, { inc_votes: +1 });
+      apiClient.patch(`/articles/${id}`, { inc_votes: +1 }).catch((err) => {
+        setVoted("down");
+        setVoteCount(voteCount);
+      });
     }
   };
 
