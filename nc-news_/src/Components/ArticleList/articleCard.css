@@ -1,0 +1,37 @@
+#cardBack {
+  background-color: whitesmoke;
+  border: solid 5px #3d348b;
+  border-radius: 10px;
+  margin: 10px;
+  padding-right: 10px;
+  padding-bottom: 0px;
+  max-width: 900px;
+}
+
+#cardTitle {
+  text-decoration: none;
+  padding-bottom: 0px;
+}
+
+#titleText {
+  color: black;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+#articleInfo {
+  background-color: #7678ed;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  margin-right: 10px;
+  padding-left: 10px;
+  border-bottom-right-radius: 5.5px;
+  border-bottom-left-radius: 5.5px;
+  border-top: 10px solid #3d348b;
+}
+
+#titleText:hover {
+  color: #3d348b;
+}

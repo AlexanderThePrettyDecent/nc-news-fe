@@ -1,6 +1,7 @@
 import apiClient from "../../api";
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
+import "./articleList.css";
 
 const ListProvider = () => {
   const [articleList, setArticleList] = useState([]);
@@ -28,19 +29,30 @@ const ListProvider = () => {
   }, [page]);
 
   return (
-    <div>
-      <ul>
+    <div id="listBack">
+      <ul id="list">
         {articleList.map((article) => {
           return <ArticleCard article={article} />;
         })}
       </ul>
-      {page > 1 ? (
-        <button onClick={previousPageHandler}>Previous Page</button>
-      ) : null}
-      <p>Page: {page}</p>
-      {totalPages >= page + 1 ? (
-        <button onClick={nextPageHandler}>Next Page</button>
-      ) : null}
+      <div id="buttonZone">
+        <button
+          disabled={!(page > 1)}
+          className="pageButton"
+          onClick={previousPageHandler}
+        >
+          Previous
+        </button>
+        <p>Page: {page}</p>
+
+        <button
+          disabled={!(totalPages >= page + 1)}
+          className="pageButton"
+          onClick={nextPageHandler}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

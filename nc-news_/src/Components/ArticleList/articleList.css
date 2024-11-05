@@ -1,0 +1,41 @@
+#listBack {
+  margin: 0px;
+  text-align: center;
+}
+
+#list {
+  padding: 10px;
+  list-style: none;
+  margin: 0px;
+  display: inline-block;
+  text-align: left;
+  height:100vh;
+}
+
+#buttonZone {
+  display: flex;
+  justify-content: center;
+  background-color: #3d348b;
+  color: white;
+  font-weight: bold;
+  
+}
+
+.pageButton {
+  color: white;
+  font-weight: bold;
+  width: 75px;
+  background-color: #3d348b;
+  border: none;
+  margin: 5px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.pageButton:hover {
+  background-color: #7678ed;
+}
+
+.pageButton:disabled {
+  background-color: grey;
+}

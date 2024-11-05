@@ -1,0 +1,31 @@
+#navBox {
+  background-color: #3d348b;
+}
+
+#title {
+  color: white;
+  padding-top: 20px;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+#buttonBar {
+  display: flex;
+  background-color: #3d348b;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.navButton {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.navButton:hover {
+  background-color: #7678ed;
+}
