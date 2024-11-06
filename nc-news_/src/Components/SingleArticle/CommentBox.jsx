@@ -3,10 +3,10 @@ import apiClient from "../../api";
 import CommentCard from "./CommentCard";
 import "./article.css";
 
-const CommentBox = ({ id }) => {
+const CommentBox = ({ id, userInfo }) => {
   const [commentList, setCommentList] = useState([]);
   const [currNewComment, setCurrNewComment] = useState("");
-  const user = "weegembump";
+  const { user, setUser } = userInfo;
 
   const commentChangeHandler = (e) => {
     setCurrNewComment(e.target.value);
@@ -54,17 +54,19 @@ const CommentBox = ({ id }) => {
           return <CommentCard comment={comment} />;
         })}
       </ul>
-      <div id="commentInputBox">
-        <textarea
-          value={currNewComment}
-          type="text"
-          id="commentTextBox"
-          onChange={commentChangeHandler}
-        ></textarea>
-        <button id="postCommentButton" onClick={postComment}>
-          Post Comment
-        </button>
-      </div>
+      {user === "none" ? null : (
+        <div id="commentInputBox">
+          <textarea
+            value={currNewComment}
+            type="text"
+            id="commentTextBox"
+            onChange={commentChangeHandler}
+          ></textarea>
+          <button id="postCommentButton" onClick={postComment}>
+            Post Comment
+          </button>
+        </div>
+      )}
     </div>
   );
 };
