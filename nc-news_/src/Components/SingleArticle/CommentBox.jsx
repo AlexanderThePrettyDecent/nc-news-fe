@@ -6,7 +6,7 @@ import "./article.css";
 const CommentBox = ({ id, userInfo }) => {
   const [commentList, setCommentList] = useState([]);
   const [currNewComment, setCurrNewComment] = useState("");
-  const { user, setUser } = userInfo;
+  const { user } = userInfo;
 
   const commentChangeHandler = (e) => {
     setCurrNewComment(e.target.value);
@@ -14,7 +14,7 @@ const CommentBox = ({ id, userInfo }) => {
 
   const postComment = () => {
     const newCommentList = [...commentList];
-    newCommentList.push({
+    newCommentList.unshift({
       body: currNewComment,
       author: user,
       article_id: "newComment",
@@ -29,11 +29,22 @@ const CommentBox = ({ id, userInfo }) => {
         username: user,
         articleID: id,
       })
+      .then((response) => {
+        const commentPostedList = [...commentList];
+        commentPostedList.unshift(response.data.comment);
+        setCommentList(commentPostedList);
+      })
       .catch((err) => {
         const updateCommentList = [...commentList];
-        updateCommentList.pop();
+        updateCommentList.shift();
         setCommentList(updateCommentList);
       });
+  };
+
+  const deleteComment = (comment) => {
+    const deleteNewArr = [...commentList];
+    deleteNewArr.splice(deleteNewArr.indexOf(comment), 1);
+    setCommentList(deleteNewArr);
   };
 
   useEffect(() => {
@@ -51,7 +62,13 @@ const CommentBox = ({ id, userInfo }) => {
     <div id="commentBox">
       <ul id="commentList">
         {commentList.map((comment) => {
-          return <CommentCard comment={comment} />;
+          return (
+            <CommentCard
+              comment={comment}
+              user={user}
+              deleteComment={deleteComment}
+            />
+          );
         })}
       </ul>
       {user === "none" ? null : (
