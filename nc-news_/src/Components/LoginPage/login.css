@@ -1,0 +1,53 @@
+.UserCard {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  justify-content: center;
+  margin: 10px;
+}
+
+.UserButton {
+  display: grid;
+  justify-content: left;
+  gap: 0px;
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "img"
+    "name";
+}
+
+.PFP {
+  height: 100%;
+  width: 100%;
+  grid-area: img;
+  object-fit: contain;
+  justify-self: center;
+  overflow: hidden;
+}
+
+.UserName {
+  grid-area: name;
+  justify-self: center;
+}
+
+#UserList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#SignInTitle {
+  background-color: whitesmoke;
+  border-bottom: 5px solid #3d348b;
+}
+
+.CurrentUser {
+  background-color: whitesmoke;
+  border-bottom: 5px solid #3d348b;
+}

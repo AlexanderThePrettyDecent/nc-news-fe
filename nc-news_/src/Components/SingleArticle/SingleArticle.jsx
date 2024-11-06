@@ -5,7 +5,7 @@ import "./article.css";
 import CommentBox from "./CommentBox";
 import { useParams } from "react-router";
 
-const SingleArticle = () => {
+const SingleArticle = ({ userInfo }) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [article, setArticle] = useState({});
@@ -96,7 +96,7 @@ const SingleArticle = () => {
               </button>
             </div>
           </div>
-          <CommentBox id={id} />
+          <CommentBox id={id} userInfo={userInfo} />
         </div>
       ) : (
         <RingLoader id="loader" />
