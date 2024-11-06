@@ -6,12 +6,35 @@ import "./article.css";
 const CommentBox = ({ id }) => {
   const [commentList, setCommentList] = useState([]);
   const [currNewComment, setCurrNewComment] = useState("");
+  const user = "weegembump";
 
   const commentChangeHandler = (e) => {
     setCurrNewComment(e.target.value);
   };
 
-  const postComment = () => {};
+  const postComment = () => {
+    const newCommentList = [...commentList];
+    newCommentList.push({
+      body: currNewComment,
+      author: user,
+      article_id: "newComment",
+      votes: 0,
+      created_at: Date.now(),
+    });
+    setCommentList(newCommentList);
+    setCurrNewComment("");
+    apiClient
+      .post(`/articles/${id}/comments`, {
+        body: currNewComment,
+        username: user,
+        articleID: id,
+      })
+      .catch((err) => {
+        const updateCommentList = [...commentList];
+        updateCommentList.pop();
+        setCommentList(updateCommentList);
+      });
+  };
 
   useEffect(() => {
     apiClient
@@ -32,8 +55,15 @@ const CommentBox = ({ id }) => {
         })}
       </ul>
       <div id="commentInputBox">
-        <textarea type="text" id="commentTextBox" onChange={commentChangeHandler}></textarea>
-        <button id="postCommentButton" onClick={postComment}>Post Comment</button>
+        <textarea
+          value={currNewComment}
+          type="text"
+          id="commentTextBox"
+          onChange={commentChangeHandler}
+        ></textarea>
+        <button id="postCommentButton" onClick={postComment}>
+          Post Comment
+        </button>
       </div>
     </div>
   );
