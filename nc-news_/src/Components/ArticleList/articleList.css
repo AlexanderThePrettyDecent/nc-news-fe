@@ -9,7 +9,7 @@
   margin: 0px;
   display: inline-block;
   text-align: left;
-  height:100vh;
+  height: 100vh;
 }
 
 #buttonZone {
@@ -18,7 +18,6 @@
   background-color: #3d348b;
   color: white;
   font-weight: bold;
-  
 }
 
 .pageButton {
@@ -38,4 +37,13 @@
 
 .pageButton:disabled {
   background-color: grey;
+}
+
+#loader {
+  display: inline-block;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  margin-bottom: 25%
 }

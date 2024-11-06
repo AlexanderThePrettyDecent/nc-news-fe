@@ -37,12 +37,12 @@
 }
 #imageBox {
   border-bottom: solid 5px #3d348b;
+  background-color: #676388;
 }
 
 #articleBody {
   background-color: whitesmoke;
-  padding: 0;
-  margin: 0;
+  padding: 5px;
   margin: 0px;
   display: inline-block;
   text-align: left;
@@ -92,7 +92,7 @@
 }
 
 #commentBox {
-  background-color: grey;
+  background-color:#676388;
   margin: 0px;
 }
 
@@ -119,4 +119,13 @@
 
 #postCommentButton {
   align-self: left;
+}
+
+#loader {
+  display: inline-block;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  margin-bottom: 25%
 }
