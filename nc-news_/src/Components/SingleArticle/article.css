@@ -1,0 +1,131 @@
+#articleWhole {
+  text-align: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: #3d348b solid 5px;
+  border-right: #3d348b solid 5px;
+  background-color: grey;
+}
+
+#bodyBack {
+  text-align: center;
+  padding: 100;
+  max-width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#articleTitle {
+  background-color: whitesmoke;
+  border-bottom: solid 5px #3d348b;
+  margin: 0px;
+}
+
+#details {
+  background-color: whitesmoke;
+  margin: 0;
+  border-bottom: solid 5px #3d348b;
+}
+
+#image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#imageBox {
+  border-bottom: solid 5px #3d348b;
+  background-color: #676388;
+}
+
+#articleBody {
+  background-color: whitesmoke;
+  padding: 5px;
+  margin: 0px;
+  display: inline-block;
+  text-align: left;
+  max-width: 1000px;
+  border-bottom: #3d348b 5px solid;
+}
+
+#voteBox {
+  background-color: #3d348b;
+  margin: 0px;
+  border-bottom: #3d348b solid 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#voteCount {
+  background-color: #7678ed;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  align-self: center;
+  font-size: larger;
+}
+
+.button {
+  width: 100%;
+  background-color: #3d348b;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  border-top: 1px solid #3d348b;
+  border-bottom: 1px solid #3d348b;
+}
+
+.button:disabled {
+  background-color: #7678ed;
+}
+
+#downVote:hover {
+  background-color: rgb(237, 122, 122);
+}
+
+#upVote:hover {
+  background-color: rgb(99, 178, 99);
+}
+
+#commentBox {
+  background-color:#676388;
+  margin: 0px;
+}
+
+#commentList {
+  list-style: none;
+  padding: 10px;
+}
+
+#commentInputBox {
+  border-top: 5px solid #3d348b;
+  margin: 0;
+  background-color: #7678ed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+#commentTextBox {
+  width: 100%;
+  height: 100px;
+  background-color: whitesmoke;
+}
+
+#postCommentButton {
+  align-self: left;
+}
+
+#loader {
+  display: inline-block;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  margin-bottom: 25%
+}

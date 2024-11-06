@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import "./articleCard.css"
 
 const ArticleCard = ({ article }) => {
   return (
-    <div>
-      <Link to={`articles/${article.article_id}`}>
-        <h2 key={article.id + "comment"}>{article.title}</h2>
+    <div id="cardBack">
+      <Link id="cardTitle" to={`articles/${article.article_id}`}>
+        <h2 id="titleText" key={article.id + "comment"}>{article.title}</h2>
       </Link>
-      <p>
+      <p id="articleInfo">
         Author: {article.author} |Topic: {article.topic} |Posted on:{" "}
         {new Date(article.created_at).getDate()}/
         {new Date(article.created_at).getMonth()}/

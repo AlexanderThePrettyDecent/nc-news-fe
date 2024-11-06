@@ -1,12 +1,15 @@
 import apiClient from "../../api";
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
+import "./articleList.css";
+import RingLoader from "react-spinners/RingLoader";
 
 const ListProvider = () => {
   const [articleList, setArticleList] = useState([]);
   const [page, setPage] = useState(1);
   const [articleCount, setArticleCount] = useState(0);
   const totalPages = Math.ceil(articleCount / 10);
+  const [loading, setLoading] = useState(true);
 
   const nextPageHandler = () => {
     setPage(page + 1);
@@ -21,6 +24,7 @@ const ListProvider = () => {
       .then((response) => {
         setArticleList(response.data.articles);
         setArticleCount(response.data.total_count);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -28,19 +32,34 @@ const ListProvider = () => {
   }, [page]);
 
   return (
-    <div>
-      <ul>
-        {articleList.map((article) => {
-          return <ArticleCard article={article} />;
-        })}
-      </ul>
-      {page > 1 ? (
-        <button onClick={previousPageHandler}>Previous Page</button>
-      ) : null}
-      <p>Page: {page}</p>
-      {totalPages >= page + 1 ? (
-        <button onClick={nextPageHandler}>Next Page</button>
-      ) : null}
+    <div id="listBack">
+      {loading ? (
+        <RingLoader id="loader" />
+      ) : (
+        <ul id="list">
+          {articleList.map((article) => {
+            return <ArticleCard article={article} />;
+          })}
+        </ul>
+      )}
+      <div id="buttonZone">
+        <button
+          disabled={!(page > 1)}
+          className="pageButton"
+          onClick={previousPageHandler}
+        >
+          Previous
+        </button>
+        <p>Page: {page}</p>
+
+        <button
+          disabled={!(totalPages >= page + 1)}
+          className="pageButton"
+          onClick={nextPageHandler}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

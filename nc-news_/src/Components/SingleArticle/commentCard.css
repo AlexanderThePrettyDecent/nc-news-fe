@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+}
+
+#commentCardBack {
+  border: solid 4px #3d348b;
+  margin: 10px;
+  border-radius: 7px;
+  background-color: whitesmoke;
+}
+
+#commentDetails {
+  text-align: left;
+  border-bottom: solid 2px #3d348b;
+  background-color: #7678ed;
+  padding: 3px;
+}
+
+#commentBody {
+  text-align: left;
+  padding: 3px;
+}
