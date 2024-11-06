@@ -26,6 +26,10 @@ function App() {
             path="/users"
             element={<LoginPage userInfo={{ user, setUser }} />}
           />
+          <Route
+            path="/topics/:topic"
+            element={<ListProvider userInfo={{ user, setUser }} />}
+          />
         </Routes>
       </div>
     </>

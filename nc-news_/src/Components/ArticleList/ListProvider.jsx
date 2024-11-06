@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import "./articleList.css";
 import RingLoader from "react-spinners/RingLoader";
+import { useParams } from "react-router";
 
 const ListProvider = () => {
   const [articleList, setArticleList] = useState([]);
@@ -10,6 +11,13 @@ const ListProvider = () => {
   const [articleCount, setArticleCount] = useState(0);
   const totalPages = Math.ceil(articleCount / 10);
   const [loading, setLoading] = useState(true);
+  const { topic } = useParams();
+  let topicQuery = "";
+  if (!topic || topic === "all") {
+    topicQuery = "";
+  } else {
+    topicQuery = "&topic=" + topic;
+  }
 
   const nextPageHandler = () => {
     setPage(page + 1);
@@ -20,7 +28,7 @@ const ListProvider = () => {
 
   useEffect(() => {
     apiClient
-      .get(`/articles?p=${page}`)
+      .get(`/articles?p=${page}${topicQuery}`)
       .then((response) => {
         setArticleList(response.data.articles);
         setArticleCount(response.data.total_count);
@@ -29,7 +37,7 @@ const ListProvider = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [page]);
+  }, [page, topic]);
 
   return (
     <div id="listBack">
