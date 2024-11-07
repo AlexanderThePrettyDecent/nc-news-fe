@@ -22,6 +22,26 @@
     "name";
 }
 
+.UserButton:hover {
+  border: #3d348b solid 10px;
+}
+
+.selectedUser {
+  display: grid;
+  justify-content: left;
+  gap: 0px;
+  background-color: white;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "img"
+    "name";
+  border: #3d348b solid 10px;
+}
+
 .PFP {
   height: 100%;
   width: 100%;
