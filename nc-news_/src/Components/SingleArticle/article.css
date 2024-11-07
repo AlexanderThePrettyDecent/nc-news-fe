@@ -129,3 +129,16 @@
   margin-top: 25%;
   margin-bottom: 25%
 }
+
+#signInLink{
+  background-color: whitesmoke;
+  border: #3d348b solid 3px;
+  padding: 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+#signInLink:hover{
+  background-color: #7678ed;
+}

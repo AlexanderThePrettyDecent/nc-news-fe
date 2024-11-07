@@ -4,6 +4,7 @@ import RingLoader from "react-spinners/RingLoader";
 import "./article.css";
 import CommentBox from "./CommentBox";
 import { useParams } from "react-router";
+import ErrorPage from "../ErrorPage";
 
 const SingleArticle = ({ userInfo }) => {
   const { id } = useParams();
@@ -11,6 +12,8 @@ const SingleArticle = ({ userInfo }) => {
   const [article, setArticle] = useState({});
   const [voteCount, setVoteCount] = useState(0);
   const [voted, setVoted] = useState("none");
+  const [failed, setFailed] = useState(false);
+  const [error, setError] = useState({});
 
   useEffect(() => {
     apiClient
@@ -22,7 +25,10 @@ const SingleArticle = ({ userInfo }) => {
         setArticle(response.data.article);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
+        setLoading(false);
+        setFailed(true);
+        setError({ status: err.response.status, msg: err.response.data.msg });
       });
   }, []);
 
@@ -63,7 +69,7 @@ const SingleArticle = ({ userInfo }) => {
 
   return (
     <>
-      {loading === false ? (
+      {!loading && !failed ? (
         <div id="articleWhole">
           <div id="bodyBack">
             <h1 id="articleTitle">{article.title}</h1>
@@ -98,8 +104,10 @@ const SingleArticle = ({ userInfo }) => {
           </div>
           <CommentBox id={id} userInfo={userInfo} />
         </div>
-      ) : (
+      ) : loading ? (
         <RingLoader id="loader" />
+      ) : (
+        <ErrorPage error={error} type={"article"} />
       )}
     </>
   );
