@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user} />
       <div id="wholePage">
         <Routes>
           <Route

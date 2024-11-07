@@ -70,7 +70,7 @@ const SingleArticle = ({ userInfo }) => {
   return (
     <>
       {!loading && !failed ? (
-        <div id="articleWhole">
+        <main id="articleWhole">
           <div id="bodyBack">
             <h1 id="articleTitle">{article.title}</h1>
             <h3 id="details">
@@ -103,7 +103,7 @@ const SingleArticle = ({ userInfo }) => {
             </div>
           </div>
           <CommentBox id={id} userInfo={userInfo} />
-        </div>
+        </main>
       ) : loading ? (
         <RingLoader id="loader" />
       ) : (
