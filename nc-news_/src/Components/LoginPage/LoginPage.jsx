@@ -16,7 +16,7 @@ const LoginPage = ({ userInfo }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [user]);
 
   const signOut = () => {
     setUser("none");
@@ -33,8 +33,8 @@ const LoginPage = ({ userInfo }) => {
         </h3>
       )}
       <ul id="UserList">
-        {userList.map((user) => {
-          return <UserCard user={user} setUser={setUser} />;
+        {userList.map((userData) => {
+          return <UserCard userData={userData} setUser={setUser} selected={user === userData.username} />;
         })}
       </ul>
     </div>
