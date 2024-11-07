@@ -73,22 +73,26 @@ const ListProvider = () => {
   return (
     <div id="listBack">
       <div>
-        <button onClick={showSortHandler}>
+        {topic ? (
+          <h1 id="topicTitle" >{topic.charAt(0).toUpperCase() + topic.slice(1)}</h1>
+        ) : null}
+        <button id="sortButton" onClick={showSortHandler}>
           {showSort ? "Hide" : "Sort Results"}
         </button>
         {!showSort ? null : (
           <div id="sortBox">
             <label>
-              Sort By
-              <select onChange={sortByHandler}>
+              {"Sort By "}
+              <select className="sortingDrop" onChange={sortByHandler}>
                 <option value="created_at">Date</option>
                 <option value="votes">Votes</option>
                 <option value="comment_count">Comments</option>
               </select>
             </label>
+            {" |"}
             <label>
-              Order
-              <select onChange={orderHandler}>
+              {" Order "}
+              <select className="sortingDrop" onChange={orderHandler}>
                 <option value="DESC">
                   {sortParams.column === "created_at" ? "Newest" : "Most"}
                 </option>
@@ -107,26 +111,26 @@ const ListProvider = () => {
           {articleList.map((article) => {
             return <ArticleCard article={article} />;
           })}
+          <div id="buttonZone">
+            <button
+              disabled={!(page > 1)}
+              className="pageButton"
+              onClick={previousPageHandler}
+            >
+              Previous
+            </button>
+            <p id="pageLabel">Page: {page}</p>
+
+            <button
+              disabled={!(totalPages >= page + 1)}
+              className="pageButton"
+              onClick={nextPageHandler}
+            >
+              Next
+            </button>
+          </div>
         </ul>
       )}
-      <div id="buttonZone">
-        <button
-          disabled={!(page > 1)}
-          className="pageButton"
-          onClick={previousPageHandler}
-        >
-          Previous
-        </button>
-        <p>Page: {page}</p>
-
-        <button
-          disabled={!(totalPages >= page + 1)}
-          className="pageButton"
-          onClick={nextPageHandler}
-        >
-          Next
-        </button>
-      </div>
     </div>
   );
 };
