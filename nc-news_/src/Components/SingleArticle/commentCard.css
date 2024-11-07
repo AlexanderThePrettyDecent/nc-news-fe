@@ -20,3 +20,36 @@
   text-align: left;
   padding: 3px;
 }
+
+.commentButton {
+  appearance: none;
+  width: 50px;
+  border: none;
+  background-color: #5a5491;
+  font-weight: bold;
+  color: white;
+}
+
+#commentVotes {
+  display: inline;
+}
+
+#commentUpVote {
+  border-right: #7678ed solid 2px;
+}
+
+#commentUpVote:hover {
+  background-color: rgb(99, 178, 99);
+}
+
+#commentDownVote:hover {
+  background-color: rgb(237, 122, 122);
+}
+
+#commentUpVote:disabled {
+  background-color: #5658e5;
+}
+
+#commentDownVote:disabled {
+  background-color: #5658e5;
+}
