@@ -9,6 +9,7 @@ Back end repo: https://github.com/AlexanderThePrettyDecent/nc-news
 ---
 
 To run the project locally:
+
 -clone the repo with `git clone https://github.com/AlexanderThePrettyDecent/nc-news-fe`
 
 -change directory to nc-news* with `cd nc-news*`
