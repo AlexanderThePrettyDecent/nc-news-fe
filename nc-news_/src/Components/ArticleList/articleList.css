@@ -66,13 +66,14 @@
   width: 100%;
   border-radius: 0px;
   border: none;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: medium;
 }
 
 #sortButton:hover {
   background-color: #9193e7;
+  color: black;
 }
 
 #topicTitle {

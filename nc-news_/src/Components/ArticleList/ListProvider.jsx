@@ -76,7 +76,7 @@ const ListProvider = () => {
   }, [page, topic, sortParams]);
 
   return (
-    <div id="listBack">
+    <main id="listBack">
       <div>
         {topic ? (
           <h1 id="topicTitle">
@@ -142,7 +142,7 @@ const ListProvider = () => {
           </div>
         </ul>
       )}
-    </div>
+    </main>
   );
 };
 
