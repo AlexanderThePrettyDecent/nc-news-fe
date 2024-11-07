@@ -2,17 +2,25 @@ import { useEffect, useState } from "react";
 import apiClient from "../../api";
 import CommentCard from "./CommentCard";
 import "./article.css";
+import { Link } from "react-router-dom";
 
 const CommentBox = ({ id, userInfo }) => {
   const [commentList, setCommentList] = useState([]);
   const [currNewComment, setCurrNewComment] = useState("");
   const { user } = userInfo;
+  const [failedComment, setFailedComment] = useState(false);
 
   const commentChangeHandler = (e) => {
     setCurrNewComment(e.target.value);
   };
 
   const postComment = () => {
+    if (currNewComment == "") {
+      setFailedComment(true);
+      return;
+    } else {
+      setFailedComment(false);
+    }
     const newCommentList = [...commentList];
     newCommentList.unshift({
       body: currNewComment,
@@ -38,6 +46,7 @@ const CommentBox = ({ id, userInfo }) => {
         const updateCommentList = [...commentList];
         updateCommentList.shift();
         setCommentList(updateCommentList);
+        setFailedComment(true);
       });
   };
 
@@ -71,8 +80,14 @@ const CommentBox = ({ id, userInfo }) => {
           );
         })}
       </ul>
-      {user === "none" ? null : (
+      {user === "none" ? (
+        <Link id="signInLink" to={"/users"}>
+          To make a comment sign in!
+        </Link>
+      ) : (
         <div id="commentInputBox">
+          <h3>New Comment:</h3>
+          {failedComment ? <h4>Comment could not be posted!</h4> : null}
           <textarea
             value={currNewComment}
             type="text"

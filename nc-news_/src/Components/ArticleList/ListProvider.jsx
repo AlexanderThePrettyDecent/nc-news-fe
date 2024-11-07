@@ -4,6 +4,7 @@ import ArticleCard from "./ArticleCard";
 import "./articleList.css";
 import RingLoader from "react-spinners/RingLoader";
 import { useParams } from "react-router";
+import ErrorPage from "../ErrorPage";
 
 const ListProvider = () => {
   const [articleList, setArticleList] = useState([]);
@@ -17,6 +18,8 @@ const ListProvider = () => {
     column: "created_at",
     order: "DESC",
   });
+  const [failed, setFailed] = useState(false);
+  const [error, setError] = useState({});
   let topicQuery = "";
 
   if (!topic || topic === "all") {
@@ -66,7 +69,9 @@ const ListProvider = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false);
+        setFailed(true);
+        setError({ status: err.response.status, msg: err.response.data.msg });
       });
   }, [page, topic, sortParams]);
 
@@ -74,7 +79,9 @@ const ListProvider = () => {
     <div id="listBack">
       <div>
         {topic ? (
-          <h1 id="topicTitle" >{topic.charAt(0).toUpperCase() + topic.slice(1)}</h1>
+          <h1 id="topicTitle">
+            {topic.charAt(0).toUpperCase() + topic.slice(1)}
+          </h1>
         ) : null}
         <button id="sortButton" onClick={showSortHandler}>
           {showSort ? "Hide" : "Sort Results"}
@@ -104,8 +111,12 @@ const ListProvider = () => {
           </div>
         )}
       </div>
-      {loading ? (
-        <RingLoader id="loader" />
+      {loading || failed ? (
+        loading ? (
+          <RingLoader id="loader" />
+        ) : (
+          <ErrorPage error={error} type={"topic"} />
+        )
       ) : (
         <ul id="list">
           {articleList.map((article) => {

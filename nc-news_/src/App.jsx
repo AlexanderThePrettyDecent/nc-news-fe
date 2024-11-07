@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar";
 import ListProvider from "./Components/ArticleList/ListProvider";
 import SingleArticle from "./Components/SingleArticle/SingleArticle";
 import LoginPage from "./Components/LoginPage/LoginPage";
+import ErrorPage from "./Components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState("none");
@@ -14,6 +15,15 @@ function App() {
       <NavBar />
       <div id="wholePage">
         <Routes>
+          <Route
+            path="*"
+            element={
+              <ErrorPage
+                error={{ msg: "not found", status: 404 }}
+                type={"page"}
+              />
+            }
+          />
           <Route
             path="/"
             element={<ListProvider userInfo={{ user, setUser }} />}
