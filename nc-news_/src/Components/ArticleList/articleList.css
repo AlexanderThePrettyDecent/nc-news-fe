@@ -13,11 +13,17 @@
 }
 
 #buttonZone {
+  text-align: center;
   display: flex;
   justify-content: center;
   background-color: #3d348b;
   color: white;
   font-weight: bold;
+  text-align: center;
+}
+
+#pageLabel {
+  padding-top: 3px;
 }
 
 .pageButton {
@@ -36,7 +42,7 @@
 }
 
 .pageButton:disabled {
-  background-color: grey;
+  background-color: #9193e7;
 }
 
 #loader {
@@ -45,5 +51,34 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 25%;
-  margin-bottom: 25%
+  margin-bottom: 25%;
+}
+
+#sortBox {
+  background-color: whitesmoke;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: #3d348b solid 5px;
+}
+
+#sortButton {
+  background-color: #7678ed;
+  width: 100%;
+  border-radius: 0px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+}
+
+#sortButton:hover {
+  background-color: #9193e7;
+}
+
+#topicTitle {
+  color: white;
+  background-color: #7678ed;
+  border-bottom: #3d348b 5px solid;
+  text-align: left;
+  padding-left: 20px;
 }
