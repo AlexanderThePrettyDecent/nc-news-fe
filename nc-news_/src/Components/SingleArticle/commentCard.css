@@ -3,16 +3,16 @@
 }
 
 #commentCardBack {
-  border: solid 4px #3d348b;
+  border: solid 4px var(--primaryColour);
   margin: 10px;
   border-radius: 7px;
-  background-color: whitesmoke;
+  background-color: var(--neutralColour)
 }
 
 #commentDetails {
   text-align: left;
-  border-bottom: solid 2px #3d348b;
-  background-color: #7678ed;
+  border-bottom: solid 2px var(--primaryColour);
+  background-color: var(--primaryLight);
   padding: 3px;
 }
 
@@ -25,9 +25,9 @@
   appearance: none;
   width: 50px;
   border: none;
-  background-color: #5a5491;
+  background-color: var(--quaternaryColour);
   font-weight: bold;
-  color: white;
+  color: var(--textOnPrimary);
 }
 
 #commentVotes {
@@ -35,7 +35,7 @@
 }
 
 #commentUpVote {
-  border-right: #7678ed solid 2px;
+  border-right: var(--primaryColour) solid 2px;
 }
 
 #commentUpVote:hover {
@@ -47,9 +47,9 @@
 }
 
 #commentUpVote:disabled {
-  background-color: #5658e5;
+  background-color: var(--tertiaryColour);
 }
 
 #commentDownVote:disabled {
-  background-color: #5658e5;
+  background-color: var(--tertiaryColour);
 }

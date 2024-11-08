@@ -1,9 +1,9 @@
 #navBox {
-  background-color: #3d348b;
+  background-color: var(--primaryColour);
 }
 
 #title {
-  color: white;
+  color: var(--textOnPrimary);
   padding-top: 20px;
   margin: 0px;
   padding-left: 10px;
@@ -12,7 +12,7 @@
 
 #buttonBar {
   display: flex;
-  background-color: #3d348b;
+  background-color: var(--primaryColour);
   justify-content: space-evenly;
   height: 100%;
 }
@@ -20,7 +20,7 @@
 .navButton {
   padding-left: 10px;
   padding-right: 10px;
-  color: white;
+  color: var(--textOnPrimary);
   text-decoration: none;
   font-weight: bold;
   width: 100%;
@@ -29,12 +29,12 @@
 }
 
 .navButton:hover {
-  background-color: #7678ed;
+  background-color: var(--tertiaryColour);
 }
 
 .topicSelect {
-  background-color: #3d348b;
-  color: white;
+  background-color: var(--primaryColour);
+  color: var(--textOnPrimary);
   width: 100%;
   text-align: center;
   font-weight: bold;
@@ -46,11 +46,11 @@
 }
 
 .topicSelect:hover {
-  background-color: #7678ed;
+  background-color: var(--tertiaryColour);
 }
 
 .topicSelect option {
-  background: #7678ed;
+  background: var(--secondaryColour);
 }
 
 #topicTitle:disabled {
@@ -58,18 +58,18 @@
 }
 
 .topicOption {
-  background-color: #7678ed;
-  background: #7678ed;
+  background-color: var(--secondaryColour);
+  background: var(--secondaryColour);
 }
 
 /* #miniProfile {
   height: 100px;
   justify-items: left;
   justify-content: left;
-  border: #7678ed solid 5px;
+  border: var(--secondaryColour) solid 5px;
   display: grid;
   grid-template-columns: 1fr, 1fr;
-  background-color: #7678ed;
+  background-color: var(--secondaryColour);
   grid-template-areas: "img name";
   justify-content: right;
 } */
@@ -79,14 +79,15 @@
   justify-content: left;
   text-align: left;
   gap: 0px;
-  background-color: white;
-  border: solid 2px black;
+  background-color: var(--backgroundLight);
+  border: solid 2px var(--secondaryColour);
   border-radius: 8px;
   height: 75px;
   width: auto;
   grid-template-columns: 75px;
   grid-template-rows: auto;
-  grid-template-areas: "img name";
+  grid-template-areas: "img name"
+  "img link";
   padding-right: 10px;
   border-radius: 8px;
 }
@@ -96,13 +97,12 @@
   height: 100%;
   grid-area: img;
   object-fit: contain;
-
 }
 
 #username {
-  color: black;
+  color: var(--textOnSecondary);
   grid-area: name;
-  text-align: right;
+  text-align: center;
   width: 100%;
   font-size: larger;
   align-self: right;
@@ -114,4 +114,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#newArticleLink{
+  text-align: center;
+  grid-area: link;
+  text-decoration: none;
+  color: var(--textOnPrimary);
+  background-color: var(--primaryColour);
+  margin-bottom: 5px;
+  padding: 2px;
+}
+
+#newArticleLink:hover{
+  background-color: var(--tertiaryColour);
 }
