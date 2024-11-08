@@ -24,7 +24,7 @@ const CommentCard = ({ comment, user, deleteComment }) => {
 
   useEffect(() => {
     setVoteCount(comment.votes);
-  }, []);
+  }, [comment]);
 
   const commentUpVoteHandler = () => {
     if (voted === "none") {
@@ -73,7 +73,7 @@ const CommentCard = ({ comment, user, deleteComment }) => {
     <li id="commentCardBack" key={comment.comment_id}>
       <div id="commentDetails">
         <b>{comment.author}</b>|{new Date(comment.created_at).getDate()}/
-        {new Date(comment.created_at).getMonth()}/
+        {new Date(comment.created_at).getMonth()+1}/
         {new Date(comment.created_at).getFullYear()}| Votes: {voteCount} |{" "}
         <div id="commentVotes">
           <button
