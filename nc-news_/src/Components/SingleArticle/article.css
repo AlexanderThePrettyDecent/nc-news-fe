@@ -3,9 +3,9 @@
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  border-left: #3d348b solid 5px;
-  border-right: #3d348b solid 5px;
-  background-color: grey;
+  border-left: var(--primaryColour) solid 5px;
+  border-right: var(--primaryColour) solid 5px;
+  background-color: var(--quaternaryColour);
 }
 
 #bodyBack {
@@ -18,15 +18,15 @@
 }
 
 #articleTitle {
-  background-color: whitesmoke;
-  border-bottom: solid 5px #3d348b;
+  background-color: var(--neutralColour);
+  border-bottom: solid 5px var(--primaryColour);
   margin: 0px;
 }
 
 #details {
-  background-color: whitesmoke;
+  background-color: var(--neutralColour);
   margin: 0;
-  border-bottom: solid 5px #3d348b;
+  border-bottom: solid 5px var(--primaryColour);
 }
 
 #image {
@@ -36,33 +36,33 @@
   width: 50%;
 }
 #imageBox {
-  border-bottom: solid 5px #3d348b;
-  background-color: #676388;
+  border-bottom: solid 5px var(--primaryColour);
+  background-color: var(--q);
 }
 
 #articleBody {
-  background-color: whitesmoke;
+  background-color: var(--neutralColour);
   padding: 5px;
   margin: 0px;
   display: inline-block;
   text-align: left;
   max-width: 1000px;
-  border-bottom: #3d348b 5px solid;
+  border-bottom: var(--primaryColour) 5px solid;
 }
 
 #voteBox {
-  background-color: #3d348b;
+  background-color: var(--primaryColour);
   margin: 0px;
-  border-bottom: #3d348b solid 5px;
+  border-bottom: var(--primaryColour) solid 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
 #voteCount {
-  background-color: #7678ed;
+  background-color: var(--secondaryColour);
   width: 100%;
-  color: black;
+  color: var(--textOnSecondary);
   font-weight: bold;
   align-self: center;
   font-size: larger;
@@ -70,17 +70,17 @@
 
 .button {
   width: 100%;
-  background-color: #3d348b;
+  background-color: var(--primaryColour);
   border: none;
   color: white;
   font-weight: bold;
   font-size: large;
-  border-top: 1px solid #3d348b;
-  border-bottom: 1px solid #3d348b;
+  border-top: 1px solid var(--primaryColour);
+  border-bottom: 1px solid var(--primaryColour);
 }
 
 .button:disabled {
-  background-color: #7678ed;
+  background-color: var(--secondaryColour);
 }
 
 #downVote:hover {
@@ -92,8 +92,10 @@
 }
 
 #commentBox {
-  background-color:#676388;
+  background-color: var(--quaternaryColour);
   margin: 0px;
+  border-bottom: var(--primaryColour) solid 5px;
+  padding-bottom: 20px;
 }
 
 #commentList {
@@ -102,9 +104,9 @@
 }
 
 #commentInputBox {
-  border-top: 5px solid #3d348b;
+  border-top: 5px solid var(--primaryColour);
   margin: 0;
-  background-color: #7678ed;
+  background-color: var(--secondaryColour);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,7 +116,7 @@
 #commentTextBox {
   width: 100%;
   height: 100px;
-  background-color: whitesmoke;
+  background-color: var(--neutralColour);
 }
 
 #postCommentButton {
@@ -127,18 +129,18 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 25%;
-  margin-bottom: 25%
+  margin-bottom: 25%;
 }
 
-#signInLink{
-  background-color: whitesmoke;
-  border: #3d348b solid 3px;
+#signInLink {
+  background-color: var(--neutralColour);
+  border: var(--primaryColour) solid 3px;
   padding: 5px;
   border-radius: 8px;
   text-decoration: none;
-  color: black;
+  color: var(--textOnSecondary);
   font-weight: bold;
 }
-#signInLink:hover{
-  background-color: #7678ed;
+#signInLink:hover {
+  background-color: var(--secondaryColour);
 }

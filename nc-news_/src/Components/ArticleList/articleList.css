@@ -9,15 +9,18 @@
   margin: 0px;
   display: inline-block;
   text-align: left;
-  height: 100vh;
+  height: auto;
+  background-color: var(--quaternaryColour);
+  border-left: var(--primaryColour) solid 5px;
+  border-right: var(--primaryColour) solid 5px;
 }
 
 #buttonZone {
   text-align: center;
   display: flex;
   justify-content: center;
-  background-color: #3d348b;
-  color: white;
+  background-color: var(--primaryColour);
+  color: var(--textOnPrimary);
   font-weight: bold;
   text-align: center;
 }
@@ -27,22 +30,22 @@
 }
 
 .pageButton {
-  color: white;
+  color: var(--textOnPrimary);
   font-weight: bold;
   width: 75px;
-  background-color: #3d348b;
+  background-color: var(--primaryColour);
   border: none;
   margin: 5px;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  border-left: 1px solid var(--textOnPrimary);
+  border-right: 1px solid var(--textOnPrimary);
 }
 
 .pageButton:hover {
-  background-color: #7678ed;
+  background-color: var(--tertiaryColour);
 }
 
 .pageButton:disabled {
-  background-color: #9193e7;
+  background-color: var(--secondaryColour);
 }
 
 #loader {
@@ -55,30 +58,31 @@
 }
 
 #sortBox {
-  background-color: whitesmoke;
+  background-color: var(--neutralColour);
   padding-bottom: 10px;
   padding-top: 10px;
-  border-bottom: #3d348b solid 5px;
+  border-bottom: var(--primaryColour) solid 5px;
 }
 
 #sortButton {
-  background-color: #7678ed;
+  background-color: var(--secondaryColour);
   width: 100%;
   border-radius: 0px;
   border: none;
-  color: white;
+  color: var(--textOnSecondary);
   font-weight: bold;
   font-size: medium;
 }
 
 #sortButton:hover {
-  background-color: #9193e7;
+  background-color: var(--tertiaryColour);
+  color: var(--textOnSecondary);
 }
 
 #topicTitle {
-  color: white;
-  background-color: #7678ed;
-  border-bottom: #3d348b 5px solid;
+  color: var(--textOnPrimary);
+  background-color: var(--secondaryColour);
+  border-bottom: var(--primaryColour) 5px solid;
   text-align: left;
   padding-left: 20px;
 }

@@ -23,7 +23,7 @@ const LoginPage = ({ userInfo }) => {
   };
 
   return (
-    <div>
+    <main>
       <h1 id="SignInTitle">Choose a User:</h1>
       {user === "none" ? (
         <h3 className="CurrentUser">No Current User</h3>
@@ -37,7 +37,7 @@ const LoginPage = ({ userInfo }) => {
           return <UserCard userData={userData} setUser={setUser} selected={user === userData.username} />;
         })}
       </ul>
-    </div>
+    </main>
   );
 };
 

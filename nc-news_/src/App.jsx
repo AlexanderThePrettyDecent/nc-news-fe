@@ -6,13 +6,14 @@ import ListProvider from "./Components/ArticleList/ListProvider";
 import SingleArticle from "./Components/SingleArticle/SingleArticle";
 import LoginPage from "./Components/LoginPage/LoginPage";
 import ErrorPage from "./Components/ErrorPage";
+import NewArticle from "./Components/NewArticle/NewArticle";
 
 function App() {
   const [user, setUser] = useState("none");
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user} />
       <div id="wholePage">
         <Routes>
           <Route
@@ -40,6 +41,7 @@ function App() {
             path="/topics/:topic"
             element={<ListProvider userInfo={{ user, setUser }} />}
           />
+          <Route path="/articles/new" element={<NewArticle user={user} />} />
         </Routes>
       </div>
     </>

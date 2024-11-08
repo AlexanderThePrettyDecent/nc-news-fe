@@ -3,11 +3,27 @@ import "./navbar.css";
 import apiClient from "../api";
 import { useState, useEffect } from "react";
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const [topicList, setTopicList] = useState([]);
-  const [topicClick, setTopicClick] = useState(false);
   const navigate = useNavigate();
   const { topic } = useParams();
+  const [userDetails, setUserDetails] = useState({});
+
+  useEffect(() => {
+    if (user != "none") {
+      apiClient
+        .get(`/users/${user}`)
+        .then((response) => {
+          const newUserDetails = { ...response.data.user };
+          setUserDetails(newUserDetails);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setUserDetails({});
+    }
+  }, [user]);
 
   useEffect(() => {
     apiClient
@@ -25,23 +41,29 @@ const NavBar = () => {
   };
 
   return (
-    <div id="navBox">
-      <h1 id="title">NC News</h1>
+    <nav id="navBox">
+      <div id="headingBar">
+        <h1 id="title">NC News</h1>
+        {user !== "none" ? (
+          <div id="miniProfile">
+            <img id="miniPFP" src={userDetails.avatar_url}></img>
+            <h2 id="username">{userDetails.username}</h2>
+            <Link id="newArticleLink" to="/articles/new" >Write Article</Link>
+          </div>
+        ) : null}
+      </div>
       <div id="buttonBar">
         <Link className="navButton" to="/">
           All Articles
         </Link>
+
         <select
+          id="topicSelect"
           onChange={topicLink}
           className="topicSelect"
           value={topic}
         >
-          <option
-            id="topicTitle"
-            className="topicOption"
-            disabled={topicClick}
-            value="all"
-          >
+          <option id="topicTitle" className="topicOption" value="all">
             All Topics
           </option>
           {topicList.map((topic) => {
@@ -56,7 +78,7 @@ const NavBar = () => {
           User Profile
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 
