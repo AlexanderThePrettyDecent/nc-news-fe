@@ -11,7 +11,6 @@ const NewArticle = ({ user }) => {
   const [currBody, setCurrBody] = useState("");
   const [currTopic, setCurrTopic] = useState("");
   const [failed, setFailed] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [ready, setReady] = useState(false);
   const navigate = useNavigate();
 
@@ -49,7 +48,7 @@ const NewArticle = ({ user }) => {
       article_img_url: currImage,
       body: currBody,
       topic: currTopic,
-      author: "weegembump",
+      author: user,
     });
   };
 
@@ -60,8 +59,10 @@ const NewArticle = ({ user }) => {
       newArticle.topic &&
       newArticle.article_img_url
     ) {
+        setFailed(false)
       setReady(true);
     } else {
+        setFailed(true)
     }
   }, [newArticle]);
 
@@ -74,9 +75,13 @@ const NewArticle = ({ user }) => {
       })
       .catch((err) => {
         console.log(err);
+        setFailed(true)
       });
   };
-
+  if (user === "none")
+  {
+    return <h1>Please Sign In</h1>
+  }
   return (
     <form className="newArticle">
       <h1>New Article</h1>
@@ -105,6 +110,7 @@ const NewArticle = ({ user }) => {
           })}
         </select>
       </label>
+      {failed ? <p>Something went wrong!</p>: null}
       {!ready ? (
         <button onClick={postArticleHandler} type="button">
           Post Article
