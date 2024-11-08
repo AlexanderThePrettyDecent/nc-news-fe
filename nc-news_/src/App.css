@@ -1,8 +1,25 @@
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  --primaryColour: #4281A4;
+  --primaryLight:#4281A4;
+  --secondaryColour: #48A9A6;
+  --secondaryHover:#c07789;
+  --tertiaryColour: #C1666B;
+  --quaternaryColour: #8AB8D0;
+  --neutralColour: #e0e2db;
+  --textOnSecondary: #000000;
+  --textOnPrimary: #ffffff;
+  --backgroundLight: #E4DFDA;
 }
 
-#wholePage {
-  background-color: #73797b;
-}
+/* --primaryColour: #3d348b;
+  --secondaryColour: #7678ed;
+  --tertiaryColour: #9193e7;
+  --quaternaryColour: #676388;
+  --neutralColour: #f5f5f5;
+  --textOnSecondary: #000000;
+  --textOnPrimary: #ffffff; */
 
+#wholePage { 
+  background-color: #D4B483;
+}

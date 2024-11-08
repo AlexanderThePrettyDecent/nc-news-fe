@@ -48,6 +48,7 @@ const NavBar = ({ user }) => {
           <div id="miniProfile">
             <img id="miniPFP" src={userDetails.avatar_url}></img>
             <h2 id="username">{userDetails.username}</h2>
+            <Link id="newArticleLink" to="/articles/new" >Write Article</Link>
           </div>
         ) : null}
       </div>
